@@ -1,4 +1,4 @@
-function nsei(){
+function Strings(){
     const nome = prompt(`Digite seu nome completo:`);
     const qntNomes = nome.split(" ");
     let qntLetra = 0;
