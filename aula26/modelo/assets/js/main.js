@@ -1,55 +1,88 @@
 function escopo(){
     const form = document.querySelector('form');
-
-    function calculoIMC(evento){
-        evento.preventDefault(); //Não enviar o formulário
-        
-        const peso = document.querySelector('#peso');
-        const altura = document.querySelector('#altura');
-        const alerta = document.querySelector('#alerta');
-        const resultado = document.querySelector('#resultado');
-
-        alerta.style.display = 'none';
-        resultado.style.display = 'none';
-        
-
-        if(peso.value > 400 || peso.value<=10){
-            alerta.innerHTML = `<p>Peso inválido!</p>`;
-            alerta.style.display = 'block';
-            return;
-        }else if(isNaN(altura.value) == true || Number(altura.value) > 2.2 || Number(altura.value) <= 1){
-            alerta.innerHTML = `<p>Altura inválida!</p>`;
-            alerta.style.display = 'block';
-            return;
-        }else{
-            const imc = peso.value / Number(altura.value)**2;
-            resultado.style.display = 'block';
+    const alerta = document.querySelector('#alerta');
+    const resultado = document.querySelector('#resultado');
     
-            if(imc < 18.5){
-                resultado.innerHTML = `<p>Abaixo do peso</p>`;
-                resultado.style.backgroundColor = 'var(--underweight)';
-            }else if (imc < 25){
-                resultado.innerHTML = `<p>Peso normal</p>`;
-                resultado.style.backgroundColor = 'var(--normal-weight)';
-            }else if (imc < 30){
-                resultado.innerHTML = `<p>Sobrepeso</p>`;
-                resultado.style.backgroundColor = 'var(--overweigh)';
-            }else if (imc < 35){
-                resultado.innerHTML = `<p>Obesidade grau 1</p>`;
-                resultado.style.backgroundColor = 'var(--obesity-1)';
-            }
-            else if (imc < 40){
-                resultado.innerHTML = `<p>Obesidade grau 2</p>`;
-                resultado.style.backgroundColor = 'var(--obesity-2)';
-            }else{
-                resultado.innerHTML = `<p>Obesidade grau 3</p>`;
-                resultado.style.backgroundColor = 'var(--obesity-3)';
-            }
-            
-            
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); //Não enviar o formulário 
+        alerta.style.display = 'none';
+        alerta.innerHTML = '';
+        resultado.style.display = 'none';
+        resultado.innerHTML ='';
+        const peso = e.target.querySelector('#peso');
+        const altura = e.target.querySelector('#altura');
+        validaInput(peso, altura);
+    });     
+    
+    function criaP(className, text){
+        const p = document.createElement('p');
+        if(className.trim()===''){
+            p.innerHTML = text;
+            return p;
+        }else{
+            p.classList.add(className);
+            p.innerHTML = text;
+            return p; 
         }
     }
 
-    form.addEventListener('submit', calculoIMC);
+    function validaInput(peso, altura){
+        if(peso.value > 400 || peso.value<=10){
+            const p = criaP('', 'Peso inválido!');
+            alerta.appendChild(p);
+            alerta.style.display = 'block';
+            return;
+        }else if(!altura.value || Number(altura.value) > 2.2 || Number(altura.value) <= 1){
+            const p = criaP('', 'Altura inválida!');
+            alerta.appendChild(p);
+            alerta.style.display = 'block';
+            return;
+        }else{
+            calculaIMC(peso.value, Number(altura.value));
+            return;
+        }
+    }
+
+    function calculaIMC(peso, altura){
+        const imc = peso / altura**2;
+        setResultado(msgSelector(imc));
+        return;
+    }
+
+    function msgSelector(imc){
+        if(imc < 18.5){
+            const p = criaP('underweight', `Abaixo do peso`);
+            return p;
+        }
+        if (imc < 25){
+            const p = criaP('normal-weight', `Peso normal`);
+            return p;
+        }
+        if (imc < 30){
+            const p = criaP('overweigh', `Sobrepeso`);
+            return p;
+        }
+        if (imc < 35){
+            const p = criaP('obesity-1', `Obesidade grau 1`);
+            return p;
+        }
+        if (imc < 40){
+            const p = criaP('obesity-2', `Obesidade grau 2`);
+            return p;
+        }
+        
+        const p = criaP('obesity-3', `Obesidade grau 3`);
+        return p;
+        
+        
+    }
+    
+    function setResultado(msg){
+        resultado.appendChild(msg);
+        resultado.style.display = 'block';
+        return;
+    }
+
+    return;
 }
 escopo();

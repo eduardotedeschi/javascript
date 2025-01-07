@@ -99,15 +99,41 @@ form button:active{
     font-size: 20px;
 }
 
-#resultado{
+#resultado p{
     width: 100%;
     height: 50px;
     margin: 20px auto;
     padding: 8px;
     border-radius: 5px;
+    font-size: 20px;
 }
 
-#resultado p{
-    margin: 0;
-    font-size: 20px;
+.underweight{
+    background-color: var(--underweight);
+    border: 1px solid #89b5c4;
+}
+
+.normal-weight{
+    background-color: var(--normal-weight);
+    border: 1px solid #63b963;
+}
+
+.overweigh{
+    background-color: var(--overweigh);
+    border: 1px solid #bb9f008c;
+}
+
+.obesity-1{
+    background-color: var(--obesity-1);
+    border: 1px solid #d17956d7;
+}
+
+.obesity-2{
+    background-color: var(--obesity-2);
+    border: 1px solid #c56c0086;
+}
+
+.obesity-3{
+    background-color: var(--obesity-3);
+    border: 1px solid #b831008c;
 }
