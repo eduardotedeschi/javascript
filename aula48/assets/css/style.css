@@ -3,7 +3,8 @@
 :root{
     --primary-color: rgb(17, 86, 102);
     --primary-color-darker: rgb(9, 48, 56);
-    --delete-color: 
+    --delete-color: rgba(173, 0, 0);
+    --delete-color-darker: rgb(138, 0, 0);
 }
 
 *{
@@ -29,9 +30,9 @@ body{
 }
 
 input{
-    font-size: 24px;
-    height: 50px;
-    padding: 0 20px;
+    font-size: 16px;
+    height: 40px;
+    padding: 0 10px;
 }
 
 input:focus {
@@ -41,21 +42,43 @@ input:focus {
 button{
     border: none;
     border-radius: 3px;
-    background-color: var(--primary-color);
     color: white;
     font-size: 18px;
     height: 40px;
     cursor: pointer;
-    margin-top: 30px;
 }
 
-button:hover{
+.button-add-tarefa{
+    background-color: var(--primary-color);
+}
+
+.button-add-tarefa:hover{
     background-color: var(--primary-color-darker);
     color: rgb(192, 192, 192);
 }
 
-button:active{
+.button-add-tarefa:active{
     background-color: rgb(7, 35, 41);
     color: rgb(139, 139, 139);
+}
+
+.button-apagar-tarefa{
+    background-color: var(--delete-color);
+    margin-left: 10px;
+    height: 30px;
+}
+
+.button-apagar-tarefa:hover{
+    background-color: var(--delete-color-darker);
+    color: rgb(192, 192, 192);
+}
+
+.button-apagar-tarefa:active{
+    background-color: rgb(104, 0, 0);
+    color: rgb(139, 139, 139);
+}
+
+li{
+    margin-bottom: 10px;
 }
 
