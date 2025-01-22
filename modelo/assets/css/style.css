@@ -2,7 +2,7 @@
 
 :root{
     --primary-color: rgb(17, 86, 102);
-    --primary-color-darker: rgb(9, 48, 56);
+    --primary-color-darker: rgb(16, 73, 85);
 }
 
 *{
@@ -56,10 +56,10 @@ form button{
 
 form button:hover{
     background-color: var(--primary-color-darker);
-    color: rgb(192, 192, 192);
+    color: rgb(220, 220, 220);
 }
 
 form button:active{
     background-color: rgb(7, 35, 41);
-    color: rgb(139, 139, 139);
+    color: rgb(180, 180, 180);
 }

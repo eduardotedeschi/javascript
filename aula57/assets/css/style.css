@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root{
+    --primary-color: rgb(17, 86, 102);
+    --primary-color-darker: rgb(16, 73, 85);
+}
+
+*{
+    box-sizing: border-box;
+    outline: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color:var(--primary-color);
+    font-family: 'Open sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+.container{
+    max-width: 640px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.calculadora{
+    width: 400px;
+}
+
+.display{
+    font-size: 2em;
+    width: 100%;
+    text-align: right;
+}
+
+.btn{
+    width: 100%;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1em;
+    height: 40px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: var(--primary-color-darker);
+    color: rgb(220, 220, 220);
+}
+
+.btn:active{
+    background-color: rgb(12, 58, 68);
+    color: rgb(180, 180, 180);
+}
+
+.btn-eq{
+    background-color: rgb(218, 141, 0);
+}
+
+.btn-eq:hover{
+    background-color: rgb(196, 127, 0);
+    color: rgb(220, 220, 220);
+}
+
+.btn-eq:active{
+    background-color: rgb(175, 114, 0);
+    color: rgb(180, 180, 180);
+}
+
+.btn-del{
+    background-color: rgb(180, 30, 30);
+}
+
+.btn-del:hover{
+    background-color: rgb(150, 25, 25);
+    color: rgb(220, 220, 220);
+}
+
+.btn-del:active{
+    background-color: rgb(136, 23, 23);
+    color: rgb(180, 180, 180);
+}
+
+.btn-clear{
+    background-color: rgb(116, 116, 116);
+}
+
+.btn-clear:hover{
+    background-color: rgb(100, 100, 100);
+    color: rgb(220, 220, 220);
+}
+
+.btn-clear:active{
+    background-color: rgb(83, 83, 83);
+    color: rgb(180, 180, 180);
+}
