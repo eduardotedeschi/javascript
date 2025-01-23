@@ -2,8 +2,6 @@
     function criaCalculadora(){
         return {
             display: document.querySelector('.display'),
-            btnDel: document.querySelector('.btn-del'),
-            btnEq: document.querySelector('.btn-eq'),
 
             inicia(){
                 this.cliqueBotoes();

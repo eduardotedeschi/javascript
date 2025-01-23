@@ -4,7 +4,7 @@
 function Pessoa(nome, sobrenome){
     //Atributos ou métodos privados
     const ID = 123456;
-    const metodoInte = function (){
+    const metodoInterno = function (){
 
     };
 
