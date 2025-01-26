@@ -5,41 +5,37 @@
         const calculadora = document.querySelector('.calculadora');
         const display = document.querySelector('.display');
 
-        this.iniciar = function() {
+        this.iniciar = () => {
             clicaBotao();
             pressionaEnter();
             display.focus();
         };
 
-        const mostrarDisplay = function(valor) {
-            display.value += valor;
-        };
+        const mostrarDisplay = valor => display.value += valor;
 
-        const limpaDisplay = function() {
-            display.value = '';
-        };
+        const limpaDisplay = () => display.value = '';
 
-        const deletarChar = function() {
-            display.value = display.value.slice(0, -1);
-        };
+        const deletarChar = () => display.value = display.value.slice(0, -1);
 
-        const calcular = function() {
+        const calcular = () => {
             try {
                 let conta = display.value;
                 conta = eval(conta);
                 if(!conta){
                     alert('Erro na conta!');
                     display.value = '';
+                    return;
                 }
                 display.value = conta;
             } catch (error) {
                 const err = error;
                 alert('Erro na conta!');
                 display.value = '';
+                return;
             }
         };
 
-        const clicaBotao = function() {
+        const clicaBotao = () => {
             calculadora.addEventListener('click', e => {
                 const el = e.target;
 
@@ -65,17 +61,17 @@
             });
         };
 
-        const pressionaEnter = function() {
+        const pressionaEnter = () => {
             document.addEventListener('keyup', e => {
                 if(e.key === 'Enter'){
                     calcular();
                     display.focus();
                 }
             });
-        }
+        };
     }
 
-    const calculadora1 = new Calculadora();
-    calculadora1.iniciar();
+    const calculadora = new Calculadora();
+    calculadora.iniciar();
 
 })();
